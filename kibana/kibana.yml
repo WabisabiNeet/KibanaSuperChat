@@ -1,0 +1,6 @@
+server.port: 5601
+elasticsearch.hosts: http://localhost:9200
+xpack.graph.enabled: false
+xpack.security.enabled: false
+xpack.ml.enabled: false
+
