@@ -18,7 +18,12 @@ services:
         - I18N_LOCALE="ja-JP"
 #    volumes:
 #        - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+  selenium:
+    build: selenium
+    ports:
+        - 4444:4444
+    volumes:
+        - /dev/shm:/dev/shm
 volumes:
   esdata:
     driver: local
-
