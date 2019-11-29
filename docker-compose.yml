@@ -24,6 +24,12 @@ services:
         - 4444:4444
     volumes:
         - /dev/shm:/dev/shm
+  collector:
+    build: collector
+    volumes:
+      - ./log/debug/:/go/bin/debug/
+      - ./log/superchat/:/go/bin/superchat/
+      - ./secret/credentials.json:/go/bin/credentials.json
 volumes:
   esdata:
     driver: local
