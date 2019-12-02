@@ -1,6 +1,7 @@
 version: '2'
 services:
   elasticsearch:
+    container_name: elasticsearch
     build: elasticsearch
     volumes:
         - esdata:/usr/share/elasticsearch/data
@@ -11,6 +12,7 @@ services:
     environment:
         - discovery.type=single-node
   kibana:
+    container_name: kibana
     build: kibana
     ports:
         - 5601:5601
@@ -19,18 +21,20 @@ services:
 #    volumes:
 #        - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
   selenium:
+    container_name: selenium
     build: selenium
     ports:
         - 4444:4444
     volumes:
         - /dev/shm:/dev/shm
   collector:
+    container_name: collector
     build: collector
     volumes:
-        - ./log/debug/:/var/lib/app/debug/
-        - ./log/superchat/:/var/lib/app/superchat/
-        - ./secret/credentials.json:/var/lib/app/credentials.json
-        - ./secret/token.json:/var/lib/app/token.json
+        - "./log/debug/:/var/lib/app/debug/"
+        - "./log/superchat/:/var/lib/app/superchat/"
+        - "./secret/credentials.json:/var/lib/app/credentials.json"
+        - "./secret/token.json:/var/lib/app/token.json"
     environment:
         - YOUTUBE_WATCH_LIVE_KEY1
         - YOUTUBE_WATCH_LIVE_KEY2
