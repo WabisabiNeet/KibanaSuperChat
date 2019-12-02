@@ -27,9 +27,9 @@ services:
   collector:
     build: collector
     volumes:
-      - ./log/debug/:/go/bin/debug/
-      - ./log/superchat/:/go/bin/superchat/
-      - ./secret/credentials.json:/go/bin/credentials.json
+      - ./log/debug/:/var/lib/app/debug/
+      - ./log/superchat/:/var/lib/app/superchat/
+      - ./secret/credentials.json:/var/lib/app/credentials.json
 volumes:
   esdata:
     driver: local
