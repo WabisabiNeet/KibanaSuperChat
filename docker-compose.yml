@@ -30,6 +30,16 @@ services:
       - ./log/debug/:/var/lib/app/debug/
       - ./log/superchat/:/var/lib/app/superchat/
       - ./secret/credentials.json:/var/lib/app/credentials.json
+    environment:
+      - YOUTUBE_WATCH_LIVE_KEY1
+      - YOUTUBE_WATCH_LIVE_KEY2
+      - YOUTUBE_WATCH_LIVE_KEY3
+      - YOUTUBE_WATCH_LIVE_KEY4
+      - YOUTUBE_WATCH_LIVE_KEY5
+      - YOUTUBE_WATCH_LIVE_KEY6
+      - YOUTUBE_WATCH_LIVE_KEY7
+      - YOUTUBE_WATCH_LIVE_KEY8
+      - YOUTUBE_WATCH_LIVE_KEY9
 volumes:
   esdata:
     driver: local
