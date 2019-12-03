@@ -4,7 +4,9 @@ RUN go get -d github.com/WabisabiNeet/CollectSuperChat
 
 WORKDIR /go/src/github.com/WabisabiNeet/CollectSuperChat
 RUN go build -tags=release
-RUN cp ./CollectSuperChat /var/lib/app/
 
 WORKDIR /var/lib/app/
+RUN cp /go/src/github.com/WabisabiNeet/CollectSuperChat/CollectSuperChat .
+
+
 CMD ["CollectSuperChat"]
