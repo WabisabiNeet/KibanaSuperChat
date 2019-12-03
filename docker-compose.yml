@@ -31,8 +31,8 @@ services:
     container_name: collector
     build: collector
     volumes:
+        - chatdata:/var/lib/app/superchat/
         - "./log/debug/:/var/lib/app/debug/"
-        - "./log/superchat/:/var/lib/app/superchat/"
         - "./secret/credentials.json:/var/lib/app/credentials.json"
         - "./secret/token.json:/var/lib/app/token.json"
     environment:
@@ -47,4 +47,6 @@ services:
         - YOUTUBE_WATCH_LIVE_KEY9
 volumes:
   esdata:
+    driver: local
+  chatdata:
     driver: local
