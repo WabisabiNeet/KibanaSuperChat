@@ -11,5 +11,6 @@ RUN go build -tags=release
 WORKDIR /var/lib/app/
 RUN cp /go/src/github.com/WabisabiNeet/CollectSuperChat/CollectSuperChat .
 RUN cp /go/src/github.com/WabisabiNeet/CollectSuperChat/start.sh .
+RUN chmod +x start.sh
 
 CMD [ "./start.sh" ]
