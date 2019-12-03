@@ -7,6 +7,4 @@ RUN go build -tags=release
 
 WORKDIR /var/lib/app/
 RUN cp /go/src/github.com/WabisabiNeet/CollectSuperChat/CollectSuperChat .
-
-
-CMD ["CollectSuperChat"]
+CMD ["./CollectSuperChat"]
