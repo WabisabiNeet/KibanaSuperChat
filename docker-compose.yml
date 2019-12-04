@@ -1,51 +1,54 @@
 version: '2'
 services:
-  elasticsearch:
-    container_name: elasticsearch
-    build: elasticsearch
-    volumes:
-        - esdata:/usr/share/elasticsearch/data
-    ports:
-        - 9200:9200
-    expose:
-        - 9300
-    environment:
-        - discovery.type=single-node
-  kibana:
-    container_name: kibana
-    build: kibana
-    ports:
-        - 5601:5601
-    environment:
-        - I18N_LOCALE="ja-JP"
+    elasticsearch:
+        container_name: elasticsearch
+        build: elasticsearch
+        volumes:
+            - esdata:/usr/share/elasticsearch/data
+        ports:
+            - 9200:9200
+        expose:
+            - 9300
+        environment:
+            - discovery.type=single-node
+    kibana:
+        container_name: kibana
+        build: kibana
+        ports:
+            - 5601:5601
+        environment:
+            - I18N_LOCALE="ja-JP"
 #    volumes:
 #        - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
-  selenium:
-    container_name: selenium
-    build: selenium
-    ports:
-        - 4444:4444
-    volumes:
-        - /dev/shm:/dev/shm
-  collector:
-    container_name: collector
-    build: collector
-    volumes:
-        - chatdata:/var/lib/app/superchat/
-        - "./log/debug/:/var/lib/app/debug/"
-        - "./secret/credentials.json:/var/lib/app/credentials.json"
-        - "./secret/token.json:/var/lib/app/token.json"
-    environment:
-        - YOUTUBE_WATCH_LIVE_KEY1
-        - YOUTUBE_WATCH_LIVE_KEY2
-        - YOUTUBE_WATCH_LIVE_KEY3
-        - YOUTUBE_WATCH_LIVE_KEY4
-        - YOUTUBE_WATCH_LIVE_KEY5
-        - YOUTUBE_WATCH_LIVE_KEY6
-        - YOUTUBE_WATCH_LIVE_KEY7
-        - YOUTUBE_WATCH_LIVE_KEY8
-        - YOUTUBE_WATCH_LIVE_KEY9
-        - SUPER_CHAT_SENTRY_DSN
+    selenium:
+        container_name: selenium
+        build: selenium
+        ports:
+            - 4444:4444
+        volumes:
+            - /dev/shm:/dev/shm
+    collector:
+        container_name: collector
+        build: collector
+        volumes:
+            - chatdata:/var/lib/app/superchat/
+            - "./log/debug/:/var/lib/app/debug/"
+            - "./secret/credentials.json:/var/lib/app/credentials.json"
+            - "./secret/token.json:/var/lib/app/token.json"
+        environment:
+            - YOUTUBE_WATCH_LIVE_KEY1
+            - YOUTUBE_WATCH_LIVE_KEY2
+            - YOUTUBE_WATCH_LIVE_KEY3
+            - YOUTUBE_WATCH_LIVE_KEY4
+            - YOUTUBE_WATCH_LIVE_KEY5
+            - YOUTUBE_WATCH_LIVE_KEY6
+            - YOUTUBE_WATCH_LIVE_KEY7
+            - YOUTUBE_WATCH_LIVE_KEY8
+            - YOUTUBE_WATCH_LIVE_KEY9
+            - SUPER_CHAT_SENTRY_DSN
+    data:
+        image: ubuntu:18.04
+        tty: true
 volumes:
   esdata:
     driver: local
