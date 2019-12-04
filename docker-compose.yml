@@ -49,6 +49,8 @@ services:
     data:
         image: ubuntu:18.04
         tty: true
+        volumes:
+            - chatdata:/var/lib/app/superchat/
 volumes:
   esdata:
     driver: local
