@@ -1,1 +1,1 @@
-FROM selenium/standalone-chrome-debug:3.141.59-xenon
+FROM selenium/standalone-chrome:latest
