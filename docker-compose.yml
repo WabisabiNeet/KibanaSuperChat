@@ -27,6 +27,8 @@ services:
             - 4444:4444
         volumes:
             - /dev/shm:/dev/shm
+        environment:
+            - SE_OPTS=-sessionTimeout 86400
     collector:
         container_name: collector
         build: collector
