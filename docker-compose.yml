@@ -72,4 +72,4 @@ volumes:
 
 networks:
     elasticsearch_network:
-        external: true
+        name: "esnetwork"
