@@ -11,6 +11,8 @@ services:
             - 9300
         environment:
             - discovery.type=single-node
+        networks:
+            - elasticsearch_network
     kibana:
         container_name: kibana
         build: kibana
@@ -18,6 +20,8 @@ services:
             - 5601:5601
         environment:
             - I18N_LOCALE="ja-JP"
+        networks:
+            - elasticsearch_network
 #    volumes:
 #        - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
     selenium:
@@ -29,6 +33,8 @@ services:
             - /dev/shm:/dev/shm
         environment:
             - SE_OPTS=-sessionTimeout 86400
+        networks:
+            - elasticsearch_network
     collector:
         container_name: collector
         build: collector
@@ -48,14 +54,22 @@ services:
             - YOUTUBE_WATCH_LIVE_KEY8
             - YOUTUBE_WATCH_LIVE_KEY9
             - SUPER_CHAT_SENTRY_DSN
+        networks:
+            - elasticsearch_network
     data:
         container_name: data
         image: ubuntu:18.04
         tty: true
         volumes:
             - chatdata:/var/lib/app/superchat/
+        networks:
+            - elasticsearch_network
 volumes:
-  esdata:
-    driver: local
-  chatdata:
-    driver: local
+    esdata:
+        driver: local
+    chatdata:
+        driver: local
+
+networks:
+    elasticsearch_network:
+        external: true
