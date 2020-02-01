@@ -7,7 +7,7 @@ RUN cp ${GOPATH}/src/github.com/WabisabiNeet/CollectSuperChat/CollectSuperChat .
 RUN cp ${GOPATH}/src/github.com/WabisabiNeet/CollectSuperChat/start.sh .
 RUN chmod +x start.sh
 
-FROM alpine:latest
+FROM chromedp/headless-shell:79.0.3945.130
 WORKDIR /var/lib/app/
 COPY --from=builder /var/lib/app/CollectSuperChat .
 COPY --from=builder /var/lib/app/start.sh .
