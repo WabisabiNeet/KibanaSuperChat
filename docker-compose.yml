@@ -24,17 +24,17 @@ services:
             - elasticsearch_network
 #    volumes:
 #        - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
-    selenium:
-        container_name: selenium
-        build: selenium
-        ports:
-            - 4444:4444
-        volumes:
-            - /dev/shm:/dev/shm
-        environment:
-            - SE_OPTS=-sessionTimeout 86400
-        networks:
-            - elasticsearch_network
+    # selenium:
+    #     container_name: selenium
+    #     build: selenium
+    #     ports:
+    #         - 4444:4444
+    #     volumes:
+    #         - /dev/shm:/dev/shm
+    #     environment:
+    #         - SE_OPTS=-sessionTimeout 86400
+    #     networks:
+    #         - elasticsearch_network
     collector:
         container_name: collector
         build: collector
