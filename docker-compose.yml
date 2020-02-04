@@ -13,6 +13,7 @@ services:
             - discovery.type=single-node
         networks:
             - elasticsearch_network
+        restart: always
     kibana:
         container_name: kibana
         build: kibana
@@ -22,8 +23,7 @@ services:
             - I18N_LOCALE="ja-JP"
         networks:
             - elasticsearch_network
-#    volumes:
-#        - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+        restart: always
     # selenium:
     #     container_name: selenium
     #     build: selenium
@@ -56,6 +56,7 @@ services:
             - SUPER_CHAT_SENTRY_DSN
         networks:
             - elasticsearch_network
+        restart: always
     archive_collector:
         container_name: archive_collector
         build: archive_collector
@@ -67,6 +68,7 @@ services:
             - YOUTUBE_WATCH_LIVE_KEY_ARCHIVE
         networks:
             - elasticsearch_network
+        restart: always
     data:
         container_name: data
         image: ubuntu:18.04
@@ -76,6 +78,7 @@ services:
             - arvhivedata:/var/lib/app/archive/
         networks:
             - elasticsearch_network
+        restart: always
 volumes:
     esdata:
         driver: local
