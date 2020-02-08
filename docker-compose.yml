@@ -80,6 +80,7 @@ services:
             - elasticsearch_network
         # restart: always
     metricbeat:
+        container_name: metricbeat
         image: elastic/metricbeat:7.4.2
         user: root
         volumes:
