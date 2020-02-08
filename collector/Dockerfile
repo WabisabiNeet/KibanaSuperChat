@@ -1,5 +1,6 @@
 FROM golang:1.13.4-buster as builder
-RUN go get -d github.com/WabisabiNeet/CollectSuperChat
+WORKDIR ${GOPATH}/src/github.com/WabisabiNeet/
+RUN git clone -b metrics-test-noparse-json https://github.com/WabisabiNeet/CollectSuperChat.git
 WORKDIR ${GOPATH}/src/github.com/WabisabiNeet/CollectSuperChat
 RUN go build -tags=release
 WORKDIR /var/lib/app/
