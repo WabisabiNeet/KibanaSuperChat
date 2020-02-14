@@ -54,6 +54,7 @@ services:
             - YOUTUBE_WATCH_LIVE_KEY8
             - YOUTUBE_WATCH_LIVE_KEY9
             - SUPER_CHAT_SENTRY_DSN
+            - GIT_COMMIT
         networks:
             - elasticsearch_network
         # restart: always
