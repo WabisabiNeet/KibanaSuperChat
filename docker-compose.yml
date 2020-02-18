@@ -58,28 +58,28 @@ services:
         networks:
             - elasticsearch_network
         # restart: always
-    archive_collector:
-        container_name: archive_collector
-        build: archive_collector
-        tty: true
-        volumes:
-            - arvhivedata:/var/lib/app/superchat/
-            - "./log/debug2/:/var/lib/app/debug/"
-        environment:
-            - YOUTUBE_WATCH_LIVE_KEY_ARCHIVE
-        networks:
-            - elasticsearch_network
-        # restart: always
-    data:
-        container_name: data
-        image: ubuntu:18.04
-        tty: true
-        volumes:
-            - chatdata:/var/lib/app/superchat/
-            - arvhivedata:/var/lib/app/archive/
-        networks:
-            - elasticsearch_network
-        # restart: always
+    # archive_collector:
+    #     container_name: archive_collector
+    #     build: archive_collector
+    #     tty: true
+    #     volumes:
+    #         - arvhivedata:/var/lib/app/superchat/
+    #         - "./log/debug2/:/var/lib/app/debug/"
+    #     environment:
+    #         - YOUTUBE_WATCH_LIVE_KEY_ARCHIVE
+    #     networks:
+    #         - elasticsearch_network
+    #     # restart: always
+    # data:
+    #     container_name: data
+    #     image: ubuntu:18.04
+    #     tty: true
+    #     volumes:
+    #         - chatdata:/var/lib/app/superchat/
+    #         - arvhivedata:/var/lib/app/archive/
+    #     networks:
+    #         - elasticsearch_network
+    #     # restart: always
 volumes:
     esdata:
         driver: local
